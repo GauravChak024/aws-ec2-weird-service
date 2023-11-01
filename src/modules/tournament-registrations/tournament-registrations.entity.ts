@@ -1,0 +1,29 @@
+import { Table, Column, Model, DataType, ForeignKey, Sequelize } from 'sequelize-typescript';
+import { User } from '../users/users.entity';
+import { Tournament } from '../tournaments/tournaments.entity';
+import { Team } from '../teams/teams.entity';
+
+@Table({ tableName: 'tournament_registrations' })
+export class TournamentRegistration extends Model<TournamentRegistration> {
+  @Column({ primaryKey: true, autoIncrement: true })
+  registration_id: number;
+
+  @ForeignKey(() => User)
+  @Column({ type: DataType.BIGINT, allowNull: false })
+  user_id: number;
+
+  @ForeignKey(() => Tournament)
+  @Column({ type: DataType.BIGINT, allowNull: false })
+  tournament_id: number;
+
+  @ForeignKey(() => Team)
+  @Column({ type: DataType.BIGINT })
+  team_id: number;
+
+  @Column({
+    type: DataType.ENUM('Pending', 'Accepted', 'Rejected'),
+    allowNull: false,
+    defaultValue: 'Pending'
+  })
+  registration_status: string;
+}
