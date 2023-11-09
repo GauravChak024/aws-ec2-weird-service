@@ -25,6 +25,7 @@ import { Coin } from './modules/coins/coins.entity';
 import { CoinTransaction } from './modules/coin-transactions/coin-transactions.entity';
 import { CoinPackage } from './modules/coin-packages/coin-packages.entity';
 import { HealthModule } from './modules/health/health.module';
+import { appController } from './app.controller';
 
 @Module({
   imports: [
@@ -51,5 +52,6 @@ import { HealthModule } from './modules/health/health.module';
     CoinPackagesModule,
     UserCoinPurchasesModule,
   ],
+  controllers: [appController],
 })
 export class AppModule {}
