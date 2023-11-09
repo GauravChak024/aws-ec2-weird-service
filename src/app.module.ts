@@ -24,6 +24,7 @@ import { Prize } from './modules/prizes/prizes.entity';
 import { Coin } from './modules/coins/coins.entity';
 import { CoinTransaction } from './modules/coin-transactions/coin-transactions.entity';
 import { CoinPackage } from './modules/coin-packages/coin-packages.entity';
+import { HealthModule } from './modules/health/health.module';
 
 @Module({
   imports: [
@@ -37,6 +38,7 @@ import { CoinPackage } from './modules/coin-packages/coin-packages.entity';
       database: 'weird_db_test',
       models: [User,UserCoinPurchase,Tournament,TournamentRegistration,TournamentFee,Team,TeamMember,Prize,Coin,CoinTransaction,CoinPackage],
     }),
+    HealthModule,
     UsersModule,
     PrizesModule,
     TeamMembersModule,
